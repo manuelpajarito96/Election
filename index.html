@@ -159,14 +159,13 @@ It will be on all of the major networks (ABC, NBC, Fox, CBS, MSNBC, Fox News, Fo
     </aside>
 
 
-     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <!--    Load Local version if CDN is not working-->
     <script>
         window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')
     </script>
 
     <!--   Your jQuery and other JavaScript can go here in this script element. -->
-                /*
 
     <script>
         jQuery(document).ready(function ($) {
@@ -182,14 +181,14 @@ It will be on all of the major networks (ABC, NBC, Fox, CBS, MSNBC, Fox News, Fo
             }); //end menu_button
 
 
-            //this code taken from Sebastien on Stackoverflow: http://stackoverflow.com/questions/6461300/triggering-jquery-with-css-media-queries
-            //it's been rearranged slightly
-            //leave the lines below and then write your code in the doneResizing function below
 
             var id;
-            $(window).resize(function
+            $(window).resize(function () {
+                clearTimeout(id);
+                id = setTimeout(doneResizing, 0);
+            });
 
-            function doneResizing
+            function doneResizing() {
                 //this code requires that you have Modernizr included BEFORE this file. Here is modernizr: http://modernizr.com/
                 //the trick with min-width media queries is that you need to start from your largest and go down. In the else at the end you can write  js for any size below your smallest min-width.
 
@@ -203,7 +202,6 @@ It will be on all of the major networks (ABC, NBC, Fox, CBS, MSNBC, Fox News, Fo
 
         });
     </script>
-
     </body>
 </html>
 
